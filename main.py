@@ -8,44 +8,46 @@ chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 
 driver = webdriver.Chrome(options=chrome_options)
-driver.get("https:/google.com")
+driver.get("https://wikipedia.org")
 
-
-## Encontrar Elementos
-
-google_text = driver.find_element(By.CLASS_NAME, "MV3Tnb").text
-
-print(google_text)
-
-input_box = driver.find_element(By.NAME, "q")
+input_box = driver.find_element(By.ID, "searchInput")
 
 input_box.send_keys("selenium")
 
 input_box.send_keys(Keys.ENTER)
-
-## Pausa de 5 segundos
 
 import time
 
 print('esperaremos 5 segundos' )
 time.sleep(5)
 
-## Volvemos a la home page
+driver.get("https://www.contraloria.cl")
 
-home_link = driver.find_element(By.ID, "logo")
+input_box = driver.find_element(By.CLASS_NAME, "_1qG0")
 
-home_link.click()
-
-## Buscar
-
-input_box = driver.find_element(By.NAME, "q")
-
-input_box.send_keys("selenium")
+input_box.send_keys("MUNICIPALIDAD")
 
 input_box.send_keys(Keys.ENTER)
 
-link = driver.find_element(By.PARTIAL_LINK_TEXT, "Selenium")
+import time
 
-print(link.text)
+print('esperaremos 5 segundos' )
+time.sleep(5)
 
-link.click()
+driver.get("https://www.selenium.dev/selenium/web/web-form.html")
+
+input_box = driver.find_element(By.ID, "my-text-id")
+
+input_box.send_keys("Text input")
+
+input_box = driver.find_element(By.NAME, "my-password")
+
+input_box.send_keys("pass")
+
+input_box = driver.find_element(By.NAME, "my-textarea")
+
+input_box.send_keys("texta area")
+
+driver.find_element(By.CSS_SELECTOR, ".btn").click()
+
+
